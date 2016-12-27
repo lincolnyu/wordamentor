@@ -1,0 +1,57 @@
+﻿<Window x:Class="Wordamentor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WORDAMENTOR" Height="360" Width="360" WindowStartupLocation="CenterScreen"
+        Loaded="MainWindowOnLoaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Controls/WatermarkResource.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Name="MainGrid" Focusable="true" PreviewKeyDown="MainGridOnPreviewKeyDown" SizeChanged="MainGridSizeChanged">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="48"/>
+            </Style>
+        </Grid.Resources>
+        <TextBox Grid.Row="0" Grid.Column="0"/>
+        <TextBox Grid.Row="0" Grid.Column="1"/>
+        <TextBox Grid.Row="0" Grid.Column="2"/>
+        <TextBox Grid.Row="0" Grid.Column="3"/>
+        <TextBox Grid.Row="1" Grid.Column="0"/>
+        <TextBox Grid.Row="1" Grid.Column="1"/>
+        <TextBox Grid.Row="1" Grid.Column="2"/>
+        <TextBox Grid.Row="1" Grid.Column="3"/>
+        <TextBox Grid.Row="2" Grid.Column="0"/>
+        <TextBox Grid.Row="2" Grid.Column="1"/>
+        <TextBox Grid.Row="2" Grid.Column="2"/>
+        <TextBox Grid.Row="2" Grid.Column="3"/>
+        <TextBox Grid.Row="3" Grid.Column="0"/>
+        <TextBox Grid.Row="3" Grid.Column="1"/>
+        <TextBox Grid.Row="3" Grid.Column="2"/>
+        <TextBox Grid.Row="3" Grid.Column="3"/>
+        <Canvas Grid.RowSpan="4" Grid.ColumnSpan="4" Name="SolCanvas"/>
+        <TextBox Grid.Row="4" Grid.ColumnSpan="4" FontSize="18" Name="FastInput"
+                 TextChanged="FastInputTextChanged" MouseEnter="FastInputMouseEnter"
+                 Tag="Type here for a quick input"
+                 TextAlignment="Center"
+                 Style="{StaticResource WatermarkedTextBox}" />
+    </Grid>
+</Window>
